@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const customerSchema = new Schema({
-  carNumber: String,
+  carNumber: { type: String, required: true },
   buyRecords: [
     {
       type: Schema.Types.ObjectId,

@@ -5,7 +5,8 @@ const oilBuyVoucherSchema = new Schema({
   oilBuys: [
     {
       type: Schema.Types.ObjectId,
-      ref: "oilBuys"
+      ref: "oilBuys",
+      required: true
     }
   ],
   totalAmount: Number,
