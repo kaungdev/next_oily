@@ -19,17 +19,23 @@ const app = express();
 const runExpress = () => {
   const app = express();
 
-  //   require("./models/Image");
   //   require("./models/TravelInfo");
 
-  //   app.use(morgan("dev"));
+  app.use(morgan("dev"));
   app.use(bodyParser.json());
 
-  //   require("./routes/general")(app);
+  require("./routes/oils")(app);
   //   require("./routes/travelInfo")(app);
 
   app.get("*", (req, res) => {
     return handle(req, res);
+  });
+
+  app.use(function(err, req, res, next) {
+    return res.json({
+      status: "failed",
+      err
+    });
   });
 
   app.listen(port, err => {
