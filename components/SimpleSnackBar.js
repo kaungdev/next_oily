@@ -20,7 +20,6 @@ export default class SimpleSnackBar extends Component {
   }
 
   componentWillReceiveProps(props) {
-    console.log("im triggered");
     const { isOpen } = props;
     if (isOpen) {
       this.setState(

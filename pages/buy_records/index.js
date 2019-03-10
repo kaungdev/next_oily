@@ -4,6 +4,7 @@ import _ from "lodash";
 import Grid from "@material-ui/core/Grid";
 import api from "../../src/api/";
 import { getLineData, sortResults } from "../../src/helpers/chart";
+import Layout from "../../components/Layout";
 export default class index extends Component {
   static async getInitialProps() {
     const oilRecords = await api.getOilBuy();
@@ -31,13 +32,13 @@ export default class index extends Component {
 
   render() {
     return (
-      <div>
+      <Layout>
         <Grid container>
           <Grid item xs={12}>
             <Line data={this.state.data} />
           </Grid>
         </Grid>
-      </div>
+      </Layout>
     );
   }
 }

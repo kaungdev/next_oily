@@ -20,6 +20,7 @@ const runExpress = () => {
 
   require("./routes/oils")(app);
   require("./routes/oilBuyVouchers")(app);
+  require("./routes/oilSellVouchers")(app);
 
   app.get("*", (req, res) => {
     return handle(req, res);
