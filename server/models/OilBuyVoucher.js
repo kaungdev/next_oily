@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 const { Schema } = mongoose;
 
 const oilBuyVoucherSchema = new Schema({
@@ -10,6 +11,9 @@ const oilBuyVoucherSchema = new Schema({
     }
   ],
   totalAmount: Number,
+  year: { type: String, required: true, default: moment().format("YY") },
+  // month: { type: String, required: true, default: moment().format("MMM") },
+  month: { type: String, required: true, default: "Apr" },
   createdAt: { type: Date, default: Date.now() }
 });
 

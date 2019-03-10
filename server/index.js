@@ -16,9 +16,6 @@ mongoose.connect("mongodb://localhost:27017/oily", {
 const runExpress = () => {
   const app = express();
 
-  //   require("./models/TravelInfo");
-
-  // app.use(morgan("dev"));
   app.use(bodyParser.json());
 
   require("./routes/oils")(app);
@@ -41,7 +38,7 @@ const runExpress = () => {
   });
 };
 
-if ((isRunClient = false)) {
+if ((isRunClient = true)) {
   next_app.prepare().then(() => {
     runExpress();
   });

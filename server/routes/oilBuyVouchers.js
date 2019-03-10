@@ -27,13 +27,8 @@ module.exports = app => {
       toSaves.push(newOilBuy);
       toSaves.push(existingOil);
     }
-    const days = moment()
-      .format("MMM YY")
-      .split(" ");
     newOilBuyVoucher.oilBuys = newOilBuys;
     newOilBuyVoucher.totalAmount = oilBuyVoucherTotalAmount;
-    newOilBuyVoucher.month = days[0];
-    newOilBuyVoucher.year = days[1];
 
     toSaves.push(newOilBuyVoucher);
     for (const save of toSaves) {
