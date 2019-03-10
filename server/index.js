@@ -1,6 +1,5 @@
 const express = require("express");
 const next = require("next");
-const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
@@ -14,14 +13,12 @@ mongoose.connect("mongodb://localhost:27017/oily", {
   useNewUrlParser: true
 });
 
-const app = express();
-
 const runExpress = () => {
   const app = express();
 
   //   require("./models/TravelInfo");
 
-  app.use(morgan("dev"));
+  // app.use(morgan("dev"));
   app.use(bodyParser.json());
 
   require("./routes/oils")(app);
@@ -44,7 +41,7 @@ const runExpress = () => {
   });
 };
 
-if ((isRunClient = true)) {
+if ((isRunClient = false)) {
   next_app.prepare().then(() => {
     runExpress();
   });

@@ -1,4 +1,6 @@
-// const Oil = require("../models/Oil");
+const moment = require("moment");
+
+const Oil = require("../models/Oil");
 const OilBuy = require("../models/OilBuy");
 const OilBuyVoucher = require("../models/OilBuyVoucher");
 
@@ -9,7 +11,10 @@ module.exports = app => {
     const newOilBuys = [];
     let toSaves = [];
     let oilBuyVoucherTotalAmount = 0;
-    oilBuys.forEach(({ oil, quantity, buyPrice }) => {
+    for (const oilBuy of oilBuys) {
+      const { oil, quantity, buyPrice } = oilBuy;
+      const existingOil = await Oil.findById(oil);
+      existingOil.stock += quantity;
       const totalAmount = buyPrice * quantity;
       oilBuyVoucherTotalAmount += totalAmount;
       const newOilBuy = new OilBuy({
@@ -20,9 +25,16 @@ module.exports = app => {
       });
       newOilBuys.push(newOilBuy);
       toSaves.push(newOilBuy);
-    });
+      toSaves.push(existingOil);
+    }
+    const days = moment()
+      .format("MMM YY")
+      .split(" ");
     newOilBuyVoucher.oilBuys = newOilBuys;
     newOilBuyVoucher.totalAmount = oilBuyVoucherTotalAmount;
+    newOilBuyVoucher.month = days[0];
+    newOilBuyVoucher.year = days[1];
+
     toSaves.push(newOilBuyVoucher);
     for (const save of toSaves) {
       await save.save();
@@ -34,7 +46,12 @@ module.exports = app => {
   });
 
   app.get("/api/oil_buy_vouchers", async (req, res) => {
-    const oilBuyVouchers = await OilBuyVoucher.find({}).populate("oilBuys");
+    const oilBuyVouchers = await OilBuyVoucher.find({}).populate({
+      path: "oilBuys",
+      populate: {
+        path: "oil"
+      }
+    });
     res.json({
       status: "success",
       message: "successfully found",
