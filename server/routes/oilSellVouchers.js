@@ -49,4 +49,15 @@ module.exports = app => {
       });
     }
   });
+
+  app.get("/api/oil_sell_vouchers", async (req, res) => {
+    const oilSellVouchers = await OilSellVoucher.find({})
+      .populate("customers")
+      .populate("oilSells.oil");
+    res.json({
+      status: "success",
+      message: "successfully found",
+      data: { oilSellVouchers }
+    });
+  });
 };

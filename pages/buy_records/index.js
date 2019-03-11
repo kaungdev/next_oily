@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Line } from "react-chartjs-2";
-import _ from "lodash";
 import Grid from "@material-ui/core/Grid";
+import ReactTable from "react-table";
+
 import api from "../../src/api/";
-import { getLineData, sortResults } from "../../src/helpers/chart";
 import Layout from "../../components/Layout";
 export default class index extends Component {
   static async getInitialProps() {
@@ -11,22 +10,12 @@ export default class index extends Component {
     return { serverResponse: { ...oilRecords } };
   }
 
-  state = { data: {} };
+  state = { data: [] };
 
   componentDidMount() {
-    const grouped = _.groupBy(
-      this.props.serverResponse.data.oilBuyVouchers,
-      "month"
-    );
-    const results = Object.keys(grouped).map(key => {
-      const monthName = key;
-      let netTotal = 0;
-      grouped[key].forEach(({ totalAmount }) => (netTotal += totalAmount));
-      return { monthName, netTotal };
-    });
-    const sortedResults = sortResults(results);
+    console.log(this.props.serverResponse.data.oilBuyVouchers);
     this.setState({
-      data: getLineData(sortedResults, "Buy Records")
+      data: this.props.serverResponse.data.oilBuyVouchers
     });
   }
 
@@ -35,7 +24,28 @@ export default class index extends Component {
       <Layout>
         <Grid container>
           <Grid item xs={12}>
-            <Line data={this.state.data} />
+            <ReactTable
+              data={this.state.data}
+              columns={[
+                { Header: "Total Price", accessor: "totalAmount" },
+                { Header: "Month", accessor: "month" },
+                { Header: "Year", accessor: "year" }
+              ]}
+              SubComponent={row => {
+                return (
+                  <ReactTable
+                    pageSize={3}
+                    data={row.original.oilBuys}
+                    columns={[
+                      { Header: "Name", accessor: "oil.name" },
+                      { Header: "Quantity", accessor: "quantity" },
+                      { Header: "Buy Price", accessor: "buyPrice" },
+                      { Header: "Total Amount", accessor: "totalAmount" }
+                    ]}
+                  />
+                );
+              }}
+            />
           </Grid>
         </Grid>
       </Layout>
