@@ -1,15 +1,93 @@
 import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
-import Typography from "@material-ui/core/Typography";
 import Layout from "../components/Layout";
 export default class index extends Component {
   render() {
     return (
       <div>
         <Layout>
-          <Typography variant="h6">
-            OILY POS + BUSINESS INTELLIGENCE APPLICATION
-          </Typography>
+          <Grid container>
+            <Grid item xs={12}>
+              <Button
+                size="large"
+                style={{
+                  margin: 14,
+                  backgroundColor: "#ff9800",
+                  color: "white"
+                }}
+              >
+                Oils
+              </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                size="large"
+                style={{
+                  margin: 14,
+                  backgroundColor: "#ff9800",
+                  color: "white"
+                }}
+              >
+                Buy
+              </Button>
+              <Button
+                size="large"
+                style={{
+                  margin: 14,
+                  backgroundColor: "#ff9800",
+                  color: "white"
+                }}
+              >
+                Sell
+              </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                size="large"
+                style={{
+                  margin: 14,
+                  backgroundColor: "#ff9800",
+                  color: "white"
+                }}
+              >
+                Buy Records
+              </Button>
+              <Button
+                size="large"
+                style={{
+                  margin: 14,
+                  backgroundColor: "#ff9800",
+                  color: "white"
+                }}
+              >
+                Sell Records
+              </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                size="large"
+                style={{
+                  margin: 14,
+                  backgroundColor: "#ff9800",
+                  color: "white"
+                }}
+              >
+                Buy Analysis
+              </Button>
+              <Button
+                size="large"
+                style={{
+                  margin: 14,
+                  backgroundColor: "#ff9800",
+                  color: "white"
+                }}
+              >
+                Sell Analysis
+              </Button>
+            </Grid>
+          </Grid>
         </Layout>
       </div>
     );

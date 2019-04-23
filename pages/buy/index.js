@@ -114,50 +114,81 @@ export default class index extends Component {
   render() {
     return (
       <Layout>
-        <Grid container alignContent="center" alignItems="center">
-          <Grid item>
-            <div style={{ width: 200 }}>
-              <Select
-                textFieldProps={{
-                  label: "Label",
-                  InputLabelProps: {
-                    shrink: false
-                  }
-                }}
-                options={this.state.oilsAutoCompletes}
-                value={this.state.selectedOil}
-                onChange={this.handleAutoComplete("selectedOil")}
-                instanceId={"selectedOil"}
-                isClearable
-              />
-            </div>
+        <Grid container>
+          <Grid item xs={3}>
+            <Grid container>
+              <Grid item xs={12}>
+                <Select
+                  textFieldProps={{
+                    label: "Label",
+                    InputLabelProps: {
+                      shrink: false
+                    }
+                  }}
+                  options={this.state.oilsAutoCompletes}
+                  value={this.state.selectedOil}
+                  onChange={this.handleAutoComplete("selectedOil")}
+                  instanceId={"selectedOil"}
+                  isClearable
+                />
+              </Grid>
+            </Grid>
+            <Grid container style={{ marginTop: 16 }}>
+              <Grid item xs={12}>
+                <TextField
+                  value={this.state.oilBuyPrice}
+                  onChange={this.handleChange("oilBuyPrice")}
+                  label="Buy Price"
+                  variant="outlined"
+                  type="number"
+                />
+              </Grid>
+            </Grid>
+            <Grid container style={{ marginTop: 16 }}>
+              <Grid item xs={12}>
+                <TextField
+                  value={this.state.oilBuyQuantity}
+                  onChange={this.handleChange("oilBuyQuantity")}
+                  label="Quantity"
+                  variant="outlined"
+                  type="number"
+                />
+              </Grid>
+            </Grid>
+            <Grid container style={{ marginTop: 16 }}>
+              <Grid item xs={12}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={this.addOil}
+                >
+                  Reset
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={this.addOil}
+                >
+                  Add Oil
+                </Button>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} style={{ padding: 16 }}>
+              <hr />
+            </Grid>
+            <Grid item xs={12}>
+              <Button />
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={this.submitBuyVoucher}
+              >
+                Submit
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item style={{ paddingLeft: 16 }}>
-            <TextField
-              value={this.state.oilBuyPrice}
-              onChange={this.handleChange("oilBuyPrice")}
-              label="Buy Price"
-              variant="outlined"
-              type="number"
-            />
-          </Grid>
-          <Grid item style={{ paddingLeft: 16 }}>
-            <TextField
-              value={this.state.oilBuyQuantity}
-              onChange={this.handleChange("oilBuyQuantity")}
-              label="Quantity"
-              variant="outlined"
-              type="number"
-            />
-          </Grid>
-          <Grid item style={{ paddingLeft: 16 }}>
-            <Button variant="contained" color="secondary" onClick={this.addOil}>
-              Add Oil
-            </Button>
-          </Grid>
-        </Grid>
-        <Grid container style={{ marginTop: 24 }}>
-          <Grid item xs={12}>
+          <Grid item xs={1} />
+          <Grid item xs={8}>
             <ReactTable
               data={this.state.table}
               columns={[
@@ -182,16 +213,19 @@ export default class index extends Component {
             />
           </Grid>
         </Grid>
-        <Grid container justify="flex-end" style={{ marginTop: 24 }}>
+        <Grid container alignContent="center" alignItems="center">
           <Grid item>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={this.submitBuyVoucher}
-            >
-              Submit
-            </Button>
+            <div style={{ width: 200 }} />
           </Grid>
+          <Grid item style={{ paddingLeft: 16 }} />
+          <Grid item style={{ paddingLeft: 16 }} />
+          <Grid item style={{ paddingLeft: 16 }} />
+        </Grid>
+        <Grid container style={{ marginTop: 24 }}>
+          <Grid item xs={12} />
+        </Grid>
+        <Grid container justify="flex-end" style={{ marginTop: 24 }}>
+          <Grid item />
         </Grid>
         <SimpleSnackBar
           message={this.state.snackBar.message}

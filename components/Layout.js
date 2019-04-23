@@ -113,9 +113,13 @@ class PersistentDrawerLeft extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
-              Persistent drawer
-            </Typography>
+            <Link href="/">
+              <a style={{ textDecoration: "none" }}>
+                <Typography variant="h6" color="inherit" noWrap>
+                  Petrol POS
+                </Typography>
+              </a>
+            </Link>
           </Toolbar>
         </AppBar>
         <Drawer
