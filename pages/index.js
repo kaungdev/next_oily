@@ -14,7 +14,7 @@ export default class index extends Component {
                 size="large"
                 style={{
                   margin: 14,
-                  backgroundColor: "#ff9800",
+                  backgroundColor: "#919DDC",
                   color: "white"
                 }}
               >
@@ -26,7 +26,7 @@ export default class index extends Component {
                 size="large"
                 style={{
                   margin: 14,
-                  backgroundColor: "#ff9800",
+                  backgroundColor: "#919DDC",
                   color: "white"
                 }}
               >
@@ -36,7 +36,7 @@ export default class index extends Component {
                 size="large"
                 style={{
                   margin: 14,
-                  backgroundColor: "#ff9800",
+                  backgroundColor: "#919DDC",
                   color: "white"
                 }}
               >
@@ -48,7 +48,7 @@ export default class index extends Component {
                 size="large"
                 style={{
                   margin: 14,
-                  backgroundColor: "#ff9800",
+                  backgroundColor: "#919DDC",
                   color: "white"
                 }}
               >
@@ -58,7 +58,7 @@ export default class index extends Component {
                 size="large"
                 style={{
                   margin: 14,
-                  backgroundColor: "#ff9800",
+                  backgroundColor: "#919DDC",
                   color: "white"
                 }}
               >
@@ -70,7 +70,7 @@ export default class index extends Component {
                 size="large"
                 style={{
                   margin: 14,
-                  backgroundColor: "#ff9800",
+                  backgroundColor: "#919DDC",
                   color: "white"
                 }}
               >
@@ -80,7 +80,7 @@ export default class index extends Component {
                 size="large"
                 style={{
                   margin: 14,
-                  backgroundColor: "#ff9800",
+                  backgroundColor: "#919DDC",
                   color: "white"
                 }}
               >

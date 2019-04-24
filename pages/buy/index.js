@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import ReactTable from "react-table";
 import Select from "react-select";
+import Router from "next/router";
 
 import Layout from "../../components/Layout";
 import SimpleSnackBar from "../../components/SimpleSnackBar";
@@ -149,21 +150,14 @@ export default class index extends Component {
                 <TextField
                   value={this.state.oilBuyQuantity}
                   onChange={this.handleChange("oilBuyQuantity")}
-                  label="Quantity"
+                  label="Quantity in Litre"
                   variant="outlined"
                   type="number"
                 />
               </Grid>
             </Grid>
             <Grid container style={{ marginTop: 16 }}>
-              <Grid item xs={12}>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={this.addOil}
-                >
-                  Reset
-                </Button>
+              <Grid item xs={6}>
                 <Button
                   variant="contained"
                   color="secondary"
@@ -176,15 +170,24 @@ export default class index extends Component {
             <Grid item xs={12} style={{ padding: 16 }}>
               <hr />
             </Grid>
-            <Grid item xs={12}>
-              <Button />
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={this.submitBuyVoucher}
-              >
-                Submit
-              </Button>
+            <Grid container>
+              <Grid item xs={6}>
+                <a href="/buy">
+                  <Button variant="contained" color="secondary">
+                    Reset
+                  </Button>
+                </a>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={this.submitBuyVoucher}
+                  size="large"
+                >
+                  Submit
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
           <Grid item xs={1} />
