@@ -63,6 +63,7 @@ export default class index extends Component {
   };
 
   render() {
+    console.log(this.state.oils);
     return (
       <Layout>
         <Grid container spacing={16}>
@@ -101,8 +102,12 @@ export default class index extends Component {
                   accessor: "name"
                 },
                 {
-                  Header: "Sell Price",
+                  Header: "Sell Price (Kyats)",
                   accessor: "sellPrice"
+                },
+                {
+                  Header: "Stock (in Litres)",
+                  accessor: "stock"
                 }
               ]}
             />

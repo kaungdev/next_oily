@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import Router from "next/router";
 
 import Layout from "../components/Layout";
 export default class index extends Component {
@@ -17,6 +18,7 @@ export default class index extends Component {
                   backgroundColor: "#919DDC",
                   color: "white"
                 }}
+                onClick={() => Router.push("/oils")}
               >
                 Oils
               </Button>
@@ -29,6 +31,7 @@ export default class index extends Component {
                   backgroundColor: "#919DDC",
                   color: "white"
                 }}
+                onClick={() => Router.push("/buy")}
               >
                 Buy
               </Button>
@@ -39,6 +42,7 @@ export default class index extends Component {
                   backgroundColor: "#919DDC",
                   color: "white"
                 }}
+                onClick={() => Router.push("/sell")}
               >
                 Sell
               </Button>
@@ -51,6 +55,7 @@ export default class index extends Component {
                   backgroundColor: "#919DDC",
                   color: "white"
                 }}
+                onClick={() => Router.push("/buy_records")}
               >
                 Buy Records
               </Button>
@@ -61,6 +66,7 @@ export default class index extends Component {
                   backgroundColor: "#919DDC",
                   color: "white"
                 }}
+                onClick={() => Router.push("/sell_records")}
               >
                 Sell Records
               </Button>
@@ -73,6 +79,7 @@ export default class index extends Component {
                   backgroundColor: "#919DDC",
                   color: "white"
                 }}
+                onClick={() => Router.push("/buy_analysis")}
               >
                 Buy Analysis
               </Button>
@@ -83,6 +90,7 @@ export default class index extends Component {
                   backgroundColor: "#919DDC",
                   color: "white"
                 }}
+                onClick={() => Router.push("/sell_analysis")}
               >
                 Sell Analysis
               </Button>
