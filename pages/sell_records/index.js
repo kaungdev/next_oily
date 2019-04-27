@@ -37,7 +37,7 @@ export default class index extends Component {
                     data={row.original.oilSells}
                     columns={[
                       { Header: "Name", accessor: "oil.name" },
-                      { Header: "Quantity", accessor: "quantity" },
+                      { Header: "Quantity (in Litre)", accessor: "quantity" },
                       { Header: "Sold Price", accessor: "sellPrice" },
                       { Header: "Total Amount", accessor: "totalAmount" }
                     ]}

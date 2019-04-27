@@ -194,15 +194,15 @@ export default class index extends Component {
                   accessor: "oilName"
                 },
                 {
-                  Header: "Sell Price",
+                  Header: "Sell Price (in Kyats)",
                   accessor: "sellPrice"
                 },
                 {
-                  Header: "Quantity",
+                  Header: "Quantity (in Litre)",
                   accessor: "quantity"
                 },
                 {
-                  Header: "Total",
+                  Header: "Total (in Kyats)",
                   id: "_id",
                   accessor: d => d.sellPrice * d.quantity
                 }

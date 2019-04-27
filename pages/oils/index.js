@@ -77,7 +77,7 @@ export default class index extends Component {
           <Grid item>
             <TextField
               type="number"
-              label="Sell Price"
+              label="Sell Price (in Kyats)"
               onChange={this.handleChange("sellPrice")}
               value={this.state.form.sellPrice}
             />

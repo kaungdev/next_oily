@@ -139,7 +139,7 @@ export default class index extends Component {
                 <TextField
                   value={this.state.oilBuyPrice}
                   onChange={this.handleChange("oilBuyPrice")}
-                  label="Buy Price"
+                  label="Buy Price (in Kyats)"
                   variant="outlined"
                   type="number"
                 />
@@ -200,15 +200,15 @@ export default class index extends Component {
                   accessor: "oilName"
                 },
                 {
-                  Header: "Buy Price",
+                  Header: "Buy Price (in Kyats)",
                   accessor: "oilBuyPrice"
                 },
                 {
-                  Header: "Quantity",
+                  Header: "Quantity (in Litre)",
                   accessor: "oilBuyQuantity"
                 },
                 {
-                  Header: "Total",
+                  Header: "Total (in Kyats)",
                   id: "_id",
                   accessor: d => d.oilBuyPrice * d.oilBuyQuantity
                 }
