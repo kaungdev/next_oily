@@ -14,7 +14,9 @@ module.exports = app => {
     for (const oilBuy of oilBuys) {
       const { oil, quantity, buyPrice } = oilBuy;
       const existingOil = await Oil.findById(oil);
-      existingOil.stock += quantity;
+      parsedStock = parseInt(existingOil.stock, 10);
+      parsedQuantity = parseInt(quantity, 10);
+      existingOil.stock = parsedStock + parsedQuantity;
       const totalAmount = buyPrice * quantity;
       oilBuyVoucherTotalAmount += totalAmount;
       const newOilBuy = new OilBuy({
